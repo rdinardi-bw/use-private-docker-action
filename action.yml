@@ -1,14 +1,14 @@
 name: 'Use Private Docker Action'
 description: 'Action that allows for running docker container actions from private registries'
 inputs:
-  docker-registry:
+  docker_registry:
     description: 'The registry to pull the private container action from'
     required: false
     default: ghcr.io
-  docker-username:
+  docker_username:
     description: 'The username to use to pull the image'
     required: true
-  docker-password:
+  docker_password:
     description: 'The password to use to pull the image'
     required: true
   package:
@@ -22,8 +22,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.docker-registry }}
-    - ${{ inputs.docker-username }}
-    - ${{ inputs.docker-password }}
+    - ${{ inputs.docker_registry }}
+    - ${{ inputs.docker_username }}
+    - ${{ inputs.docker_password }}
     - ${{ inputs.package }}
     - ${{ inputs.inputs }}
