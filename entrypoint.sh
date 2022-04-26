@@ -22,6 +22,6 @@ withArgs=$(inputsToDockerArgs "$withYml" 'INPUT_')
 envYml=$(yq r - env <<< $INPUT_INPUTS)
 envArgs=$(inputsToDockerArgs "$envYml" '')
 
-docker login ghcr.io -u $INPUT_DOCKER_USERNAME -p $INPUT_DOCKER_PASSWORD
+docker login $INPUT_DOCKER-REGISTRY -u $INPUT_DOCKER-USERNAME -p $INPUT_DOCKER-PASSWORD
 
 docker run $withArgs $envArgs $INPUT_PACKAGE
