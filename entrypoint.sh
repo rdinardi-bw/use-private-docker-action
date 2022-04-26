@@ -23,5 +23,6 @@ envYml=$(yq r - env <<< $INPUT_INPUTS)
 envArgs=$(inputsToDockerArgs "$envYml" '')
 
 docker login "${INPUT_DOCKER-REGISTRY}" -u "${INPUT_DOCKER-USERNAME}" -p "${INPUT_DOCKER-PASSWORD}"
+echo "after login"
 
-docker run $withArgs $envArgs $INPUT_PACKAGE
+docker run --network host $withArgs $envArgs $INPUT_PACKAGE
