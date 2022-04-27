@@ -24,6 +24,6 @@ envArgs=$(inputsToDockerArgs "$envYml" '')
 
 
 docker login ghcr.io -u "$INPUT_DOCKER_USERNAME" -p "$INPUT_DOCKER_PASSWORD"
-echo "after login"
+echo "docker run --network host $withArgs $envArgs $INPUT_PACKAGE"
 
 docker run --network host $withArgs $envArgs $INPUT_PACKAGE
